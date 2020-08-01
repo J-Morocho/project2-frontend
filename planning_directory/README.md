@@ -38,7 +38,7 @@ The front end of this application will contain two option fields that a user can
 
 ## Time/Priority Matrix 
 
-- [Time Matrix](https://res.cloudinary.com/jcloud3zf/image/upload/v1596222842/project2-api/matrix_vgwmkj.png)
+- [Time Matrix Frontend](https://res.cloudinary.com/jcloud3zf/image/upload/v1596281780/project2-api/P2-frontend_adpkvs.png)
 
 
 #### MVP
@@ -49,7 +49,7 @@ The front end of this application will contain two option fields that a user can
 | Adding input boxes and link to jQuery | H | 1.5hr| -hr | -hr |
 | Creating container for query results| M | 2hr | -hr | -hr|
 | Show event list for user | H | 3 | -hr| -hr| 
-| Working with API | H | 5hrs| -hr | -hr |
+| Working with API/ Event handlers | H | 5hrs| -hr | -hr |
 | Responsive | H | 3hr | -hr | -hr|
 | Displaying data from backend| H | 5hr | -hr | -hr|
 | Total | H | 22.5hrs| -hrs | -hrs |
@@ -57,12 +57,10 @@ The front end of this application will contain two option fields that a user can
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Project Hover | L | 3hr | -hr | -hr|
-| Banner letters wiggle | L | 1hr | -hr | -hr|
-| Interactive Banner | M | 4hr | -hr | -hr|
+| Page redirect | L | 3hr | -hr | -hr|
+| Get data using fetch | L | 1hr | -hr | -hr|
+|  | M | 4hr | -hr | -hr|
 | Materialize | H | 4hr | -hr | -hr|
-| Bootstrap | H | 4hr | -hr | -hr|
-| Make own icon | L | 4hr | -hr | -hr|
 | Total | H | 20hrs| -hrs | -hrs |
 
 ## Additional Libraries  
