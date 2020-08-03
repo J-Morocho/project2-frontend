@@ -1,11 +1,14 @@
 
 // From an obj populate the event card
 function createEventCard(obj) {
-    const 
-    const $pEventBorough = $('<p>').att("class", "event_borough")
-    const $pEventLocation = $('<p>').attr("class", "event_location")
-    const $pStartDateTime = $('<p>').attr('class', "start_date_time")
-    const $pEndDateTime = $('<p>').attr('class', "end_date_time")
-    const card = $('<div>').attr('class', "event-card")
-
+    const $h3EventName = $('<h3>').attr('class', "event_name").text("test")
+    const $pEventBorough = $('<p>').att('class', "event_borough").text("test")
+    const $pEventLocation = $('<p>').attr('class', "event_location").text("test")
+    const $pStartDateTime = $('<p>').attr('class', "start_date_time").text("test")
+    const $pEndDateTime = $('<p>').attr('class', "end_date_time").text("test")
+    const $divEvent = $('<div>').attr('class', "event")
+    $divEvent.append([$h3EventName, $pEventBorough, $pEventLocation, $pStartDateTime, $pEndDateTime])
+    $divEventCard.append([$divEvent])
+    $('#flex-container').append($divEventCard)
 }
+
