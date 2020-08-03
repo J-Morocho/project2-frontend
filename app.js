@@ -3,9 +3,6 @@
 const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
-
-
-
 const getAllEvents = async () => {
     const response = await fetch(`${URL}/events/getAll`)
     const d = await response.json()
@@ -24,7 +21,9 @@ const createEventCard = async(obj) => {
     const $pEndDateTime = $('<p>').attr('class', "end_date_time").text(obj.$pEndDateTime)
     const $divEvent = $('<div>').attr('class', "event")
     const $divEventCard = $('<div>').attr('class', 'event-card')
-    $divEvent.append([$h3EventName, $pEventBorough, $pEventLocation, $pStartDateTime, $pEndDateTime])
+    $divEvent.append([$h3EventName, $pEventBorough, 
+        $pEventLocation, $pStartDateTime, 
+        $pEndDateTime, $('<input type="button" value="Attend Event">').attr('id', obj._id)])
     $divEventCard.append([$divEvent])
     $('#flex-container').append($divEventCard)
 }
