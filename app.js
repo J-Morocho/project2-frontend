@@ -17,8 +17,8 @@ function createEventCard(obj) {
     $('#flex-container').append($divEventCard)
 }
 
-function populateOptions() {
-
+function populateOptions(field, id) {
+    const data = await fetch(`${URL}/distinct/${field}`)
 }
 
 
@@ -28,3 +28,5 @@ const getAllEvents = async () => {
     console.log(data)
 }
 
+// populateOptions("event_location")
+// populateOptions("event_borough")
