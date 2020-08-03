@@ -2,6 +2,11 @@ body {
     margin-top: 0px;
 }
 
+/* override bootstrap global box-sizing  
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+*/
 header {
     display: flex;
     background-color: gray;

@@ -23,7 +23,7 @@ const createEventCard = async(obj) => {
     const $divEventCard = $('<div>').attr('class', 'event-card')
     $divEvent.append([$h3EventName, $pEventBorough, 
         $pEventLocation, $pStartDateTime, 
-        $pEndDateTime, $('<input type="button" value="Attend Event">').attr('id', obj._id)])
+        $pEndDateTime, $('<input type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" value="Add Event">').attr('id', obj._id)])
     $divEventCard.append([$divEvent])
     $('#flex-container').append($divEventCard)
 }
