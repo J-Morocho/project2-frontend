@@ -1,0 +1,28 @@
+body {
+    margin-top: 0px;
+}
+
+header {
+    display: flex;
+    background-color: gray;
+    width: 100%;
+    justify-content: space-between;
+}
+
+h1 {
+    color: red;
+}
+
+input {
+    margin: 5px;
+}
+section {
+    margin-top: 5%;
+}
+
+.event-card {
+    display: inline-block;
+    border: 1px solid black;
+    box-shadow: gray;
+    padding: 5px 10px 5px 10px;
+}
