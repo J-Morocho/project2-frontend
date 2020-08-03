@@ -24,7 +24,14 @@
     <form>
         <h3>Find an event in</h3>
         <!-- code inspired by W3 School's page on option tag -->
-        <input list="eventBorough" name="eventBorough" id="eventBorough">
+        <input list="locations" name="location" id="location">
+        <datalist id="locations">
+            <option value="Queens"></option>
+            <option value="Brooklyn"></option>
+            <option value="Manhattan"></option>
+            <option value="Bronx"></option>
+        </datalist> 
+
         <h3>Event Type</h3>
         <input list="eventType" name="eventType" id="eventType">
         <input type="button" id="" value="Find Events">

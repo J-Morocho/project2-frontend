@@ -17,10 +17,14 @@ function createEventCard(obj) {
     $('#flex-container').append($divEventCard)
 }
 
+function populateOptions() {
+
+}
+
+
 const getAllEvents = async () => {
     const response = await fetch(`${URL}/events/getAll`)
     const data = await response.json()
     console.log(data)
 }
 
-getAllEvents()
