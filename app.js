@@ -2,8 +2,6 @@ const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 
-
-
 // From an obj populate the event card
 const createEventCard = async(obj) => {
     const $h3EventName = $('<h3>').attr('class', "event_name").text("test")
@@ -17,9 +15,13 @@ const createEventCard = async(obj) => {
     $('#flex-container').append($divEventCard)
 }
 
-const populateOptions = async (field, id) => {
+const populateDatalist = async (field, id) => {
     const data = await fetch(`${URL}/events/distinct/${field}`)
     const response = await data.json()
+
+    response.forEach( e => {
+        $(`#${id}`).append($(`<option>`).attr('value', e))
+    })
     console.log(response)
 }
 
@@ -30,5 +32,5 @@ const getAllEvents = async () => {
     console.log(data)
 }
 
-populateOptions("event_borough")
-// populateOptions("event_borough")
+populateDatalist("event_borough", "locations")
+populateDatalist("event_type", "eventTypes")
