@@ -1,3 +1,8 @@
+const deployedURL = null
+const URL = deployedURL ? deployedURL : "http://localhost:3000"
+
+
+
 
 // From an obj populate the event card
 function createEventCard(obj) {
@@ -12,3 +17,10 @@ function createEventCard(obj) {
     $('#flex-container').append($divEventCard)
 }
 
+const getAllEvents = async () => {
+    const response = await fetch(`${URL}/events/getAll`)
+    const data = await response.json()
+    console.log(data)
+}
+
+getAllEvents()
