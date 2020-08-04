@@ -9,7 +9,7 @@ const getAllEvents = async () => {
     d.forEach( obj => createEventCard(obj))
 }
 
-let o1 = getAllEvents()
+getAllEvents()
 
 // Callback function for "Add Event" button. Takes in the button id
 const addEventToUser = async (event) => {
@@ -52,7 +52,7 @@ const createEventCard = async(obj) => {
         $pEventLocation, $pStartDateTime, 
         $pEndDateTime, $addEventButton])
     $divEventCard.append([$divEvent])
-    $('#flex-container').append($divEventCard)
+    $(`#flex-container`).append($divEventCard)
 }
 
 const populateSelect = async (field, idAttribute) => {
@@ -77,7 +77,7 @@ const displayQueriedEvents = async() => {
     const response = await data.json()
     
     // clear flex container that holds events
-    $('#flex-container').empty()
+    $(`#flex-container`).empty()
     response.forEach( (obj) => {createEventCard(obj)})
 }
 
@@ -102,6 +102,7 @@ $('#w').on('click', async(event) => {
         // After 'click' event detach event-card from the flex-container 
         $(`#${$targetEventId}`).toggleClass('selected')
         $(`#${$targetEventId}`).detach()
+        $("#exampleModalCenter").modal('hide') 
         
     } else {
         console.error('INVALID INPUT ERROR: Name field must not be blank')
