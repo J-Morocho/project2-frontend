@@ -1,0 +1,16 @@
+body {
+    margin-top: 0px;
+}
+
+/* override bootstrap global box-sizing  
+.selector-for-some-widget {
+  box-sizing: content-box;
+}
+*/
+
+header {
+    background-color: #007bff;
+}
+h1 {
+    color: red;
+}
