@@ -57,7 +57,9 @@ const displayQueriedEvents = async() => {
     
     const data = await fetch(`${URL}/events/query/${$locationSelect}/${$eventTypeSelect}`)
     const response = await data.json()
-    console.log(response)
+    
+    // clear flex container that holds events
+    $('#flex-container').empty()
 }
 
 const $findEventsButton = $('#find-events-button')
