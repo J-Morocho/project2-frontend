@@ -26,8 +26,15 @@ const createEventCard = async(obj) => {
     const $pEndDateTime = $('<p>').attr('class', "end_date_time").text(obj.$pEndDateTime)
     const $divEvent = $('<div>').attr('class', "event")
     const $divEventCard = $('<div>').attr('class', 'event-card')
-    const $addEventButton = $('<input type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" value="Add Event">').attr('id', obj._id)
-    $addEventButton.on('click', addEventToUser)
+    const $addEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Add Event')
+    
+    // Toggle "selected" class to Add Event button
+    $addEventButton.on('click', async (event) => {
+        let $elementId = await event.target.id
+        await $(`#${$elementId}`).toggleClass('selected')
+        console.log(event.target)
+    })
+
     $divEvent.append([$h3EventName, $pEventBorough, 
         $pEventLocation, $pStartDateTime, 
         $pEndDateTime, $addEventButton])
@@ -64,5 +71,4 @@ const displayQueriedEvents = async() => {
 const $findEventsButton = $('#find-events-button')
 $findEventsButton.on('click', displayQueriedEvents)
 
-
-
+$('#w').on('click', async() => {await console.log(event.target)})
