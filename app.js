@@ -74,10 +74,21 @@ const $findEventsButton = $('#find-events-button')
 $findEventsButton.on('click', displayQueriedEvents)
 
 $('#w').on('click', async(event) => {
-    // Find the "selected" event
-    let $targetEventId = $('.selected').attr('id')
-    // After click event detach selected event from the flex-container 
-    $(`#${$targetEventId}`).toggleClass('selected')
-    console.log($targetEventId)
+
+    // Ensure name field is not empty
+    if ( $('#userNameField').val() !== "") {
+
+        // Find the "selected" event and the user's name
+        let $targetEventId = $('.selected').attr('id')
+        const name = $(`#userNameField`).val()
+
+        // After click event detach event-card from the flex-container 
+        $(`#${$targetEventId}`).toggleClass('selected')
+        $(`#${$targetEventId}`).detach()
+        // close modal
+        console.log(name)
+    } else {
+        console.error('INVALID INPUT ERROR: Name field must not be blank')
+    }
     
 })
