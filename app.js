@@ -81,11 +81,17 @@ $('#w').on('click', async(event) => {
         // Find the "selected" event and the user's name
         let $targetEventId = $('.selected').attr('id')
         const name = $(`#userNameField`).val()
+        
+        // Send attributes to backend routes
+        const data = await fetch(`${URL}/users/user/${name}/addEvent/${$targetEventId}`, {
+            method: "put",
+            headers: {"Content-Type": "application/json"}
+            })
 
-        // After click event detach event-card from the flex-container 
+        // After 'click' event detach event-card from the flex-container 
         $(`#${$targetEventId}`).toggleClass('selected')
         $(`#${$targetEventId}`).detach()
-        // close modal
+        
         console.log(name)
     } else {
         console.error('INVALID INPUT ERROR: Name field must not be blank')
