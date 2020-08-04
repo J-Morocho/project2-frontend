@@ -92,9 +92,9 @@ $('#w').on('click', async(event) => {
         $(`#${$targetEventId}`).toggleClass('selected')
         $(`#${$targetEventId}`).detach()
         
-        console.log(name)
     } else {
         console.error('INVALID INPUT ERROR: Name field must not be blank')
     }
     
 })
+

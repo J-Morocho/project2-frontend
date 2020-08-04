@@ -7,13 +7,10 @@ body {
   box-sizing: content-box;
 }
 */
-header {
-    display: flex;
-    background-color: gray;
-    width: 100%;
-    justify-content: space-between;
-}
 
+header {
+    background-color: #007bff;
+}
 h1 {
     color: red;
 }
