@@ -1,3 +1,4 @@
+
 const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
@@ -15,6 +16,16 @@ const addEventToUser = async (event) => {
     await $('.btn btn-primary save').on('click',console.log('hello'))
     
 }
+
+
+const getUserEvents = async() => {
+    const user = $('#name-input-field').val()
+    const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
+    const data = await response.json()
+    console.log(typeof data)
+}
+
+$('#queryuser').on('click', getUserEvents)
 
 
 // From an obj populate the event card
