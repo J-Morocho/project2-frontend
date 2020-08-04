@@ -13,14 +13,9 @@ const getAllEvents = async () => {
 let o1 = getAllEvents()
 
 // Callback function for "Add Event" button. Takes in the button id
-const addEventToUser = async (id) => {
-    const response = await fetch(`${URL}/users/user/${name}/addEvent/${id}`, {
-        method: "put",
-        headers: {
-            "Content-Type": "application/json"
-        }
-    })
-    console.log('hi')
+const addEventToUser = async (event) => {
+    await $('.btn btn-primary save').on('click',console.log('hello'))
+    
 }
 
 
@@ -42,17 +37,19 @@ const createEventCard = async(obj) => {
     $('#flex-container').append($divEventCard)
 }
 
-
-const populateDatalist = async (field, id) => {
+const populateSelect = async (field, idAttribute) => {
     const data = await fetch(`${URL}/events/distinct/${field}`)
     const response = await data.json()
 
     response.forEach( e => {
-        $(`#${id}`).append($(`<option>`).attr('value', e))
+        $(`#${idAttribute}`).append($(`<option>`).attr('value', e).text(e))
     })
 }
 
 
 
-populateDatalist("event_borough", "locations")
-populateDatalist("event_type", "eventTypes")
+populateSelect("event_borough", "locations")
+populateSelect("event_type", "eventTypes")
+
+// this works
+$('input[id="w"]').click(async() => { await console.log('hello')})

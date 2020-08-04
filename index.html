@@ -22,6 +22,16 @@
         </nav>
     </header>
       
+  
+    <form action="#" method="get" id='event-form'>
+        <h3>Find an event in</h3>
+        <select id="locations" name="locations"></select> 
+
+        <h3>Event Type</h3>
+        <select id="eventTypes" name="eventTypes" ></select>
+        <input type="submit" id="find-events-button" value="Find Events">
+    </form>
+    <section id="flex-container"></section>
     <!-- Modal Code Provided Courtesy of getbootstrap.com-->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
@@ -37,22 +47,10 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <input type="button" class="btn btn-primary save" id='w'value="Save Changes">
           </div>
         </div>
       </div>
     </div>
-    <form>
-        <h3>Find an event in</h3>
-        <!-- code inspired by W3 School's page on option tag -->
-        <input list="locations" name="location" id="location">
-        <datalist id="locations"></datalist> 
-
-        <h3>Event Type</h3>
-        <input list="eventTypes" name="eventType" id="eventType">
-        <datalist id="eventTypes"></datalist>
-        <input type="button" id="find-events-button" value="Find Events">
-    </form>
-    <section id="flex-container"></section>
 </body>
 </html>
