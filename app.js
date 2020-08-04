@@ -12,6 +12,18 @@ const getAllEvents = async () => {
 
 let o1 = getAllEvents()
 
+// Callback function for "Add Event" button. Takes in the button id
+const addEventToUser = async (id) => {
+    const response = await fetch(`${URL}/users/user/${name}/addEvent/${id}`, {
+        method: "put",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    console.log('hi')
+}
+
+
 // From an obj populate the event card
 const createEventCard = async(obj) => {
     const $h3EventName = $('<h3>').attr('class', "event_name").text(obj.event_name)
@@ -21,13 +33,14 @@ const createEventCard = async(obj) => {
     const $pEndDateTime = $('<p>').attr('class', "end_date_time").text(obj.$pEndDateTime)
     const $divEvent = $('<div>').attr('class', "event")
     const $divEventCard = $('<div>').attr('class', 'event-card')
+    const $addEventButton = $('<input type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" value="Add Event">').attr('id', obj._id)
+    $addEventButton.on('click', addEventToUser)
     $divEvent.append([$h3EventName, $pEventBorough, 
         $pEventLocation, $pStartDateTime, 
-        $pEndDateTime, $('<input type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" value="Add Event">').attr('id', obj._id)])
+        $pEndDateTime, $addEventButton])
     $divEventCard.append([$divEvent])
     $('#flex-container').append($divEventCard)
 }
-
 
 
 const populateDatalist = async (field, id) => {
@@ -37,7 +50,6 @@ const populateDatalist = async (field, id) => {
     response.forEach( e => {
         $(`#${id}`).append($(`<option>`).attr('value', e))
     })
-    console.log(response)
 }
 
 
