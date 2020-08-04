@@ -51,5 +51,17 @@ const populateSelect = async (field, idAttribute) => {
 populateSelect("event_borough", "locations")
 populateSelect("event_type", "eventTypes")
 
-// this works
-$('input[id="w"]').click(async() => { await console.log('hello')})
+const displayQueriedEvents = async() => {
+    const $eventTypeSelect = $('#eventTypes').val()
+    const $locationSelect = $('#locations').val()
+    
+    const data = await fetch(`${URL}/events/query/${$locationSelect}/${$eventTypeSelect}`)
+    const response = await data.json()
+    console.log(response)
+}
+
+const $findEventsButton = $('#find-events-button')
+$findEventsButton.on('click', displayQueriedEvents)
+
+
+

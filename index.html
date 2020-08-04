@@ -21,15 +21,12 @@
             <h2>Events List</h2>
         </nav>
     </header>
-      
-  
-    <form action="#" method="get" id='event-form'>
-        <h3>Find an event in</h3>
-        <select id="locations" name="locations"></select> 
-
-        <h3>Event Type</h3>
-        <select id="eventTypes" name="eventTypes" ></select>
-        <input type="submit" id="find-events-button" value="Find Events">
+    <form>
+      <h3>Find an event in</h3>
+      <select id="locations" name="locations"></select> 
+      <h3>Event Type</h3>
+      <select id="eventTypes" name="eventTypes" ></select>
+      <input type="button" id="find-events-button" value="Find Events">
     </form>
     <section id="flex-container"></section>
     <!-- Modal Code Provided Courtesy of getbootstrap.com-->
@@ -43,7 +40,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <input type="text" required="true">
+            <input type="text" required="true" id="userNameField">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
