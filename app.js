@@ -25,14 +25,16 @@ const createEventCard = async(obj) => {
     const $pStartDateTime = $('<p>').attr('class', "start_date_time").text(obj.start_date_time)
     const $pEndDateTime = $('<p>').attr('class', "end_date_time").text(obj.$pEndDateTime)
     const $divEvent = $('<div>').attr('class', "event")
-    const $divEventCard = $('<div>').attr('class', 'event-card')
+    const $divEventCard = $('<div>').attr({
+        class: 'event-card',
+        id: obj._id        
+    })
     const $addEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Add Event')
     
     // Toggle "selected" class to Add Event button
     $addEventButton.on('click', async (event) => {
         let $elementId = await event.target.id
         await $(`#${$elementId}`).toggleClass('selected')
-        console.log(event.target)
     })
 
     $divEvent.append([$h3EventName, $pEventBorough, 
@@ -71,4 +73,11 @@ const displayQueriedEvents = async() => {
 const $findEventsButton = $('#find-events-button')
 $findEventsButton.on('click', displayQueriedEvents)
 
-$('#w').on('click', async() => {await console.log(event.target)})
+$('#w').on('click', async(event) => {
+    // Find the "selected" event
+    let $targetEventId = $('.selected').attr('id')
+    // After click event detach selected event from the flex-container 
+    $(`#${$targetEventId}`).toggleClass('selected')
+    console.log($targetEventId)
+    
+})
