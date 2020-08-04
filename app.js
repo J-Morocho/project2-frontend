@@ -1,5 +1,3 @@
-
-
 const deployedURL = null
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
@@ -60,6 +58,7 @@ const displayQueriedEvents = async() => {
     
     // clear flex container that holds events
     $('#flex-container').empty()
+    response.forEach( (obj) => {createEventCard(obj)})
 }
 
 const $findEventsButton = $('#find-events-button')
