@@ -30,40 +30,19 @@
               <a class="nav-link" href="#">Register<span class="sr-only">(current)</span></a>
             </li>
           </ul>
-          <!-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form> -->
         </div>
       </nav>
 
     </header>
-    <!-- Modal Code Provided Courtesy of getbootstrap.com-->
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Remove Event From List?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-            <button type="button" class="btn btn-primary save" id='w'>Yes</button>
-          </div>
+    <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Full Name</label>
+          <input type="email" class="form-control" id="registerNameInput" aria-describedby="registerHelp">
+          <small id="emailHelp" class="form-text text-muted">Your name will be made public. Proceed with caution</small>
         </div>
-      </div>
-    </div>
 
-    <h3>Enter a name</h3>
-    <input type="text" id='name-input-field'>
-    <button type="button" id="queryuser" class="btn btn-outline-success my-2">Peek</button>
-
-    <section id="flex-container"></section>
-    
+        <button type="submit" class="btn btn-primary">Register!</button>
+      </form>
     
 </body>
 </html>
