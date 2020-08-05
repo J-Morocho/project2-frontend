@@ -19,7 +19,7 @@ body {
 }
 
 #event-query-form {
-    background-color: #f4a261;
+    background-color: #00000044;
 }
 
 h1 {
@@ -34,7 +34,4 @@ section {
 }
 
 @media only screen and (min-width: 768px) {
-    #event-query-form {
-        background-color: palegreen;
-    }
 }

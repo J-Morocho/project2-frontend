@@ -34,7 +34,7 @@ const createEventCard = async(obj) => {
     const $pEventBorough = $('<p>').attr('class', "event_borough").text(obj.event_borough)
     const $pEventLocation = $('<p>').attr('class', "event_location").text(obj.event_location)
     const $pStartDateTime = $('<p>').attr('class', "start_date_time").text(obj.start_date_time)
-    const $pEndDateTime = $('<p>').attr('class', "end_date_time").text(obj.$pEndDateTime)
+    const $pEndDateTime = $('<p>').attr('class', "end_date_time").text(obj.end_date_time)
     const $divEvent = $('<div>').attr('class', "event card-body")
     const $divEventCard = $('<div>').attr({
         class: 'event-card card shadow p-3 mb-3 bg-white rounded',
@@ -76,9 +76,14 @@ const displayQueriedEvents = async() => {
     const data = await fetch(`${URL}/events/query/${$locationSelect}/${$eventTypeSelect}`)
     const response = await data.json()
     
-    // clear flex container that holds events
-    $(`#flex-container`).empty()
-    response.forEach( (obj) => {createEventCard(obj)})
+    if (response.length !== 0) {
+        // clear flex container that holds events
+        $(`#flex-container`).empty()
+        response.forEach( (obj) => {createEventCard(obj)})
+    } else {
+        $(`#flex-container`).empty()
+        console.log('no results')
+    }
 }
 
 const $findEventsButton = $('#find-events-button')

@@ -25,14 +25,14 @@ const createEventCard = async(obj) => {
         $pEndDateTime, $removeEventButton])
     $divEventCard.append([$divEvent])
     $(`#flex-container`).append($divEventCard)
-}
+};
 
 const getUserEvents = async() => {
     const user = $('#name-input-field').val()
     const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
     const data = await response.json()
     data.eventsAttending.forEach( (obj) => createEventCard(obj))
-}
+};
 
 // Removes event from user list
 $('#w').on('click', async(event) => {
@@ -50,9 +50,20 @@ $('#w').on('click', async(event) => {
     $(`#${$targetEventId}`).toggleClass('selected')
     $(`#${$targetEventId}`).detach()
     $("#exampleModalCenter").modal('hide') 
-})
+});
 
 
 
-$('#queryuser').on('click', getUserEvents)
+$('#queryuser').on('click', getUserEvents);
 
+const removeUser = async() => {
+    const user = $('#name-input-field').val()
+    
+    const response = await fetch(`${URL}/users/removeUser/${user}`, {
+        method: "delete",
+        headers: {"Content-Type": "application/json"}
+    });
+
+};
+
+$('#removeuser').on('click', removeUser);
