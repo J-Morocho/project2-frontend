@@ -6,7 +6,7 @@ const URL = deployedURL ? deployedURL : "http://localhost:3000"
 $('#register-button').on('click', async () => {
     // Check if name input field is not blank
     if ( $('#registerNameInput').val() !== "") {
-        const name = $('#registerNameInput').val()
+        const name = await $('#registerNameInput').val()
         
         const newUser = {
             name: name,
