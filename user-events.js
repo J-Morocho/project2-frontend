@@ -1,4 +1,4 @@
-const deployedURL = null
+const deployedURL = "https://placeholderapp.netlify.app/"
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 // From an obj populate the event card
