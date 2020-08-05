@@ -9,8 +9,8 @@ $('#register-button').on('click', async () => {
         const name = await $('#registerNameInput').val()
         
         const newUser = {
-            name: name,
-            eventsAttending: []
+            "name": name,
+            "eventsAttending": []
         }
 
         const response = await fetch(`${URL}/users/create`, {
