@@ -23,9 +23,3 @@ section {
     margin-top: 5%;
 }
 
-.event-card {
-    border: 1px solid black;
-    box-shadow: gray;
-    padding: 5px 10px 5px 10px;
-    margin: 10px;
-}
