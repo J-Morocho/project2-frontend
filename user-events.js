@@ -13,17 +13,16 @@ const createEventCard = async(obj) => {
         class: 'event-card',
         id: obj._id        
     })
-    const $addEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Add Event')
-    
+    const $removeEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Remove Event')
     // Toggle "selected" class to Add Event button
-    $addEventButton.on('click', async (event) => {
+    $removeEventButton.on('click', async (event) => {
         let $elementId = await event.target.id
         await $(`#${$elementId}`).toggleClass('selected')
     })
 
     $divEvent.append([$h3EventName, $pEventBorough, 
         $pEventLocation, $pStartDateTime, 
-        $pEndDateTime, $addEventButton])
+        $pEndDateTime, $removeEventButton])
     $divEventCard.append([$divEvent])
     $(`#flex-container`).append($divEventCard)
 }
