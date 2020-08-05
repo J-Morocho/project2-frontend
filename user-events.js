@@ -37,12 +37,12 @@ const getUserEvents = async() => {
 // Removes event from user list
 $('#w').on('click', async(event) => {
 
-    const user = $('#name-input-field').val()
+    const user = await $('#name-input-field').val()
     // Find the "selected" event and the user's name
     let $targetEventId = $('.selected').attr('id')
     
     // Send attributes to backend routes
-    const data = await fetch(`${URL}/users/user/${name}/removeEvent/${$targetEventId}`, {
+    const data = await fetch(`${URL}/users/user/${user}/removeEvent/${$targetEventId}`, {
         method: "delete",
         headers: {"Content-Type": "application/json"}
         })
