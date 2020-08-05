@@ -28,10 +28,18 @@ h1 {
 
 section {
     display: flex;
-    flex-direction: column;
     margin: 20px;
     margin-top: 5%;
 }
 
 @media only screen and (min-width: 768px) {
+    section {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .event-card {
+        width: 30%;
+        margin: 10px
+    }
 }

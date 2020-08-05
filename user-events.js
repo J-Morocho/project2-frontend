@@ -57,13 +57,21 @@ $('#w').on('click', async(event) => {
 $('#queryuser').on('click', getUserEvents);
 
 const removeUser = async() => {
-    const user = $('#name-input-field').val()
-    
-    const response = await fetch(`${URL}/users/removeUser/${user}`, {
+    if ($('#name-input-field').val() !== ""){
+        
+        const $text = $('#name-input-field')
+        const user = $('#name-input-field').val()
+        
+        const response = await fetch(`${URL}/users/removeUser/${user}`, {
         method: "delete",
         headers: {"Content-Type": "application/json"}
-    });
-
+        });
+        $text.value = ''
+    } else {
+        alert ('not allowed!!!')
+    }
+    
+    
 };
 
 $('#removeuser').on('click', removeUser);
