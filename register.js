@@ -18,8 +18,9 @@ $('#register-button').on('click', async () => {
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(newUser)
         } )
-        console.log(`registration successfull!`)
+        
     } else {
         console.error('NAME INPUT ERROR')
     }
+    console.log(`registration successfull!`)
 })
