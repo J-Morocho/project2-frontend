@@ -34,5 +34,25 @@ const getUserEvents = async() => {
     data.eventsAttending.forEach( (obj) => createEventCard(obj))
 }
 
+// Removes event from user list
+$('#w').on('click', async(event) => {
+
+    const user = $('#name-input-field').val()
+    // Find the "selected" event and the user's name
+    let $targetEventId = $('.selected').attr('id')
+    
+    // Send attributes to backend routes
+    const data = await fetch(`${URL}/users/user/${name}/removeEvent/${$targetEventId}`, {
+        method: "delete",
+        headers: {"Content-Type": "application/json"}
+        })
+    // After 'click' event detach event-card from the flex-container 
+    $(`#${$targetEventId}`).toggleClass('selected')
+    $(`#${$targetEventId}`).detach()
+    $("#exampleModalCenter").modal('hide') 
+})
+
+
+
 $('#queryuser').on('click', getUserEvents)
 
