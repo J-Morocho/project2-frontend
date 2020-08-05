@@ -37,7 +37,7 @@ const createEventCard = async(obj) => {
     const $pEndDateTime = $('<p>').attr('class', "end_date_time").text(obj.$pEndDateTime)
     const $divEvent = $('<div>').attr('class', "event card-body")
     const $divEventCard = $('<div>').attr({
-        class: 'event-card card',
+        class: 'event-card card shadow p-3 mb-3 bg-white rounded',
         id: obj._id        
     })
     const $addEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Add Event')

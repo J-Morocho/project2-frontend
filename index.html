@@ -36,14 +36,16 @@
         </nav>
     </header>
 
-    <!-- Event query form -->
-    <form id="event-query-form">
-      <h3>Find an event in</h3>
-      <select id="locations" name="locations"></select> 
-      <h3>Event Type</h3>
-      <select id="eventTypes" name="eventTypes" ></select>
-      <input type="button" id="find-events-button" value="Find Events">
-    </form>
+    <div id="landing">
+      <!-- Event query form -->
+      <form class="shadow p-3 mb-5 bg-gray rounded"id="event-query-form">
+        <h3>Find an event in</h3>
+        <select id="locations" name="locations"></select> 
+        <h3>Event Type</h3>
+        <select id="eventTypes" name="eventTypes" ></select>
+        <input type="button" id="find-events-button" value="Find Events">
+      </form>
+    </div>
     <section id="flex-container"></section>
     
     <!-- Modal Code Provided Courtesy of getbootstrap.com-->
@@ -65,6 +67,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div id="no-events-handler">
+      <p class="text-black-50 text-center">No Events Found</p>
     </div>
 </body>
 </html>
