@@ -8,14 +8,18 @@ body {
 }
 */
 
-header {
-    background-color: #007bff;
+#event-query-form {
+    background-color: #2892D7;
 }
+
 h1 {
     color: red;
 }
 
 section {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
     margin-top: 5%;
 }
 
@@ -23,4 +27,5 @@ section {
     border: 1px solid black;
     box-shadow: gray;
     padding: 5px 10px 5px 10px;
+    margin: 10px;
 }
