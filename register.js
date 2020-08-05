@@ -20,7 +20,6 @@ $('#register-button').on('click', async () => {
         } )
         
     } else {
-        console.error('NAME INPUT ERROR')
+        console.error('NAME INPUT ERROR: Field must not be blank')
     }
-    console.log(`registration successfull!`)
 })
