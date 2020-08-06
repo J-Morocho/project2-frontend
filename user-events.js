@@ -33,24 +33,7 @@ function clearRewardsContainer() {
     $('#flex-container').html("");
 };
 
-// POST MVP STUFF
-// // Check whether there is a user 
-// const userExists = async(name) => {
-//     const response = await fetch(`${URL}/users/name/${name}`)
-//     const data = await response.json()
-    
-//     if (data) {
-//         return false
-//         console.log('false')
-//     } else {
-//         return true
-//         console.log('true')
-//     }
 
-// };
-
-// console.log('user exists',  userExists("Jendri Morocho"))
-// console.log('user exists Willa', userExists("Willa Little"))
 
 const getUserEvents = async() => {
     if ( $('#name-input-field').val() !== "") {
@@ -61,6 +44,8 @@ const getUserEvents = async() => {
         clearRewardsContainer()
 
         data.eventsAttending.forEach( (obj) => createEventCard(obj))
+
+        $('#name-input-field').val("")
     } else {
         alert ("Name input field must not be blank")
     }
@@ -78,8 +63,7 @@ $('#removefromdb').on('click', async(event) => {
             method: "delete",
             headers: {"Content-Type": "application/json"}
         });
-        // After 'click' event detach event-card from the flex-container 
-        //$(`#${$targetEventId}`).detach()
+
         $("#removeUserModal").modal('hide')
     } else {
         $("#removeUserModal").modal('hide')

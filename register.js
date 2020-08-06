@@ -19,7 +19,9 @@ $('#register-button').on('click', async () => {
             body: JSON.stringify(newUser)
         } )
         
+        $('#registerNameInput').val("")
+
     } else {
-        console.error('NAME INPUT ERROR: Field must not be blank')
+        alert ("Name input field must not be blank")
     }
 })

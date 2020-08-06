@@ -16,7 +16,6 @@ const addEventToUser = async (event) => {
     
 };
 
-
 const getUserEvents = async() => {
     const user = $('#name-input-field').val()
     const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
@@ -102,10 +101,12 @@ $('#addToList').on('click', async(event) => {
         // After 'click' event detach event-card from the flex-container 
         $(`#${$targetEventId}`).toggleClass('selected')
         $(`#${$targetEventId}`).detach()
+        $("#userNameField").val("")
         $("#exampleModalCenter").modal('hide') 
         
     } else {
-        console.error('INVALID INPUT ERROR: Name field must not be blank')
+        alert ("Name field must not be blank")
+        $("#exampleModalCenter").modal('hide')
     };
     
 });
