@@ -50,9 +50,9 @@ The front end of this application will contain two option fields that a user can
 | Creating container for query results| M | 3hr | 1hr | 1hr|
 | Show event list for user | H | 3 | 3.5hr| 3.5hr| 
 | Working with API/ Event handlers | H | 5hrs| 5hr | 5hr |
-| Responsive | H | 3hr | -hr | -hr|
+| Responsive | H | 3hr | 2hr | 2hr|
 | Displaying data from backend| H | 5hr | 5hr | 5hr|
-| Total | H | 23hrs| 17hrs | -hrs |
+| Total | H | 23hrs| 19.5hrs | 19.5hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
@@ -64,19 +64,19 @@ The front end of this application will contain two option fields that a user can
 
 ## Additional Libraries  
 jQuery : Interaction with DOM elements
+Bootstrap : Responsive css styling on html tags
 
 ## Code Snippet
 
-
+```js
+// Toggle "selected" class to Add Event button
+    $addEventButton.on('click', async (event) => {
+        let $elementId = await event.target.id
+        await $(`#${$elementId}`).toggleClass('selected')
+    });
 ```
-function reverse(string) {
-	// here is the code to reverse a string of text
-}
-```
-
-## Issues and Resolutions
- Use this section to list of all major issues encountered and their resolution.
+By toggling a selected class i was able to prevent the button from sending data over that belongs to an event i did not select.
 
 #### SAMPLE.....
-**ERROR**: app.js:34 Uncaught SyntaxError: Unexpected identifier                                
-**RESOLUTION**: Missing comma after first object in sources {} object
+**ERROR**: Uncaught Promise Error                              
+**RESOLUTION**: These were usually present when there was no await keyword present. Adding them resolved the issue.

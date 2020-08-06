@@ -20,7 +20,7 @@ const createEventCard = async(obj) => {
     $removeEventButton.on('click', async (event) => {
         let $elementId = await event.target.id
         await $(`#${$elementId}`).toggleClass('selected')
-    })
+    });
 
     $divEvent.append([$h3EventName, $pEventBorough, 
         $pEventLocation, $pStartDateTime, 
