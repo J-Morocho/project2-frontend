@@ -22,6 +22,10 @@ body {
     background-color: #00000044;
 }
 
+.event-card {
+    width: 100%;
+}
+
 h1 {
     color: red;
 }
@@ -32,7 +36,33 @@ section {
     margin-top: 5%;
 }
 
-@media only screen and (min-width: 768px) {
+/* For user-events.html */
+
+
+
+/* Tablet */
+@media only screen and (min-width: 768px){
+   
+    section {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .event-card {
+        width: 40%;
+        margin: 10px
+    }
+
+
+}
+/* Desktop */
+@media only screen and (min-width: 1200px) {
+
+    #event-query-form {
+        width: 50%;
+    }
+
+
     section {
         flex-direction: row;
         justify-content: space-between;

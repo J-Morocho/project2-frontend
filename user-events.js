@@ -10,7 +10,7 @@ const createEventCard = async(obj) => {
     const $pEndDateTime = $('<p>').attr('class', "end_date_time").text(obj.$pEndDateTime)
     const $divEvent = $('<div>').attr('class', "event card-body")
     const $divEventCard = $('<div>').attr({
-        class: 'event-card card',
+        class: 'event-card card shadow p-3 mb-3 bg-white rounded',
         id: obj._id        
     })
     const $removeEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Remove Event')
@@ -32,6 +32,7 @@ const getUserEvents = async() => {
     const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
     const data = await response.json()
     data.eventsAttending.forEach( (obj) => createEventCard(obj))
+    
 };
 
 // Removes event from user list
@@ -68,7 +69,7 @@ const removeUser = async() => {
         });
         $text.value = ''
     } else {
-        alert ('not allowed!!!')
+        alert ('not allowed!')
     }
     
     

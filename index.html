@@ -40,10 +40,10 @@
       <!-- Event query form -->
       <form class="shadow p-3 mb-5 bg-gray rounded"id="event-query-form">
         <h3>Find an event in</h3>
-        <select id="locations" name="locations"></select> 
+        <select class="custom-select" id="locations" name="locations"></select> 
         <h3>Event Type</h3>
-        <select id="eventTypes" name="eventTypes" ></select>
-        <input type="button" id="find-events-button" value="Find Events">
+        <select class="custom-select" id="eventTypes" name="eventTypes" ></select>
+        <input type="button" class="btn btn-primary my-2" id="find-events-button" value="Find Events">
       </form>
     </div>
     <section class="flex-wrap" id="flex-container"></section>
@@ -69,7 +69,7 @@
       </div>
     </div>
     <div id="no-events-handler">
-      <p class="text-black-50 text-center font-weight-bold" >No Events Found</p>
+      <p class="text-black-50 text-center font-weight-bold" >No More Events Found</p>
     </div>
 </body>
 </html>
