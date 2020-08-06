@@ -82,7 +82,6 @@ const displayQueriedEvents = async() => {
         response.forEach( (obj) => {createEventCard(obj)})
     } else {
         $(`#flex-container`).empty()
-        console.log('no results')
     }
 }
 

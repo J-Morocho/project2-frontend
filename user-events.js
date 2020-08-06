@@ -27,10 +27,18 @@ const createEventCard = async(obj) => {
     $(`#flex-container`).append($divEventCard)
 };
 
+function clearRewardsContainer() {
+    $('#flex-container').html("");
+  }
+
+
 const getUserEvents = async() => {
     const user = $('#name-input-field').val()
     const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
     const data = await response.json()
+    
+    clearRewardsContainer()
+
     data.eventsAttending.forEach( (obj) => createEventCard(obj))
     
 };
