@@ -31,8 +31,8 @@ const createEventCard = async(obj) => {
     const $h3EventName = $('<h3>').attr('class', "event_name card-title").text(obj.event_name)
     const $pEventBorough = $('<p>').attr('class', "event_borough").text(obj.event_borough)
     const $pEventLocation = $('<p>').attr('class', "event_location").text(obj.event_location)
-    const $pStartDateTime = $('<p>').attr('class', "start_date_time").text(obj.start_date_time)
-    const $pEndDateTime = $('<p>').attr('class', "end_date_time").text(obj.end_date_time)
+    const $pStartDateTime = $('<p>').attr('class', "start_date_time").text("Starts: "+ obj.start_date_time)
+    const $pEndDateTime = $('<p>').attr('class', "end_date_time").text("Ends: "+ obj.end_date_time)
     const $divEvent = $('<div>').attr('class', "event card-body")
     const $divEventCard = $('<div>').attr({
         class: 'event-card card shadow p-3 mb-3 bg-white rounded',

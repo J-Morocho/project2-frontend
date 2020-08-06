@@ -54,7 +54,8 @@
       </div>
     </div>
 
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <!-- Post-MVP Remove user modal -->
+    <div class="modal fade" id="removeUserModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -67,21 +68,24 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-            <button type="button" class="btn btn-danger save" id='removefromdb'>Yes</button>
+            <button type="button" class="btn btn-danger" id='removefromdb'>Yes</button>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Landing page -->
     <div id="landing">
       <form class="shadow p-3 mb-5 bg-gray rounded" id="event-query-form">
         <h3>Enter a name</h3>
         <input type="text" class="form-control" id='name-input-field'>
         <button type="button" id="queryuser" class="btn btn-primary my-2">Peek user's events</button>
         <h3>Remove a user</h3>
-        <button type="button" id="removeuser" class="btn btn-danger my-2">Remove the user</button>
+        <button type="button" id="removeuser" class="btn btn-danger my-2" data-toggle="modal" data-target="#removeUserModal">Remove a user</button>
       </form>
     </div>
+
+    <!-- User events container -->
     <section class="flex-wrap" id="flex-container"></section>
     
 </body>

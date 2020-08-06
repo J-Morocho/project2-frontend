@@ -44,20 +44,20 @@ const getUserEvents = async() => {
 };
 
 // Removes event from user list
-$('#w').on('click', async(event) => {
+$('#removefromdb').on('click', async(event) => {
 
+    // get value from input box
     const user = await $('#name-input-field').val()
-    // Find the "selected" event and the user's name
-    let $targetEventId = $('.selected').attr('id')
-    
-    // Send attributes to backend routes
-    const data = await fetch(`${URL}/users/user/${user}/removeEvent/${$targetEventId}`, {
-        method: "delete",
-        headers: {"Content-Type": "application/json"}
-        })
+
+    // Send "user" to removeUser route
+    // const response = await fetch(`${URL}/users/removeUser/${user}`, {
+    //     method: "delete",
+    //     headers: {"Content-Type": "application/json"}
+    // });
+    console.log(user)
+
     // After 'click' event detach event-card from the flex-container 
-    $(`#${$targetEventId}`).toggleClass('selected')
-    $(`#${$targetEventId}`).detach()
+    //$(`#${$targetEventId}`).detach()
     $("#exampleModalCenter").modal('hide') 
 });
 
@@ -83,4 +83,4 @@ const removeUser = async() => {
     
 };
 
-$('#removeuser').on('click', removeUser);
+$('#removeuser').on('click', async() => { console.log('click')});
