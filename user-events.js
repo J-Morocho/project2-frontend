@@ -35,7 +35,9 @@ function clearRewardsContainer() {
 
 // Check wether there is a user 
 const userExists = async(name) => {
-    console.log( await fetch(`${URL}/users/name/${name}`))
+    const response = await fetch(`${URL}/users/name/${name}`)
+    const data = await response.json()
+    console.log(data)
 };
 
 console.log('user exists', userExists("Jendri Morocho"))
