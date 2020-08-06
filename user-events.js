@@ -6,8 +6,8 @@ const createEventCard = async(obj) => {
     const $h3EventName = $('<h3>').attr('class', "event_name card-title").text(obj.event_name)
     const $pEventBorough = $('<p>').attr('class', "event_borough").text(obj.event_borough)
     const $pEventLocation = $('<p>').attr('class', "event_location").text(obj.event_location)
-    const $pStartDateTime = $('<p>').attr('class', "start_date_time").text(obj.start_date_time)
-    const $pEndDateTime = $('<p>').attr('class', "end_date_time").text(obj.$pEndDateTime)
+    const $pStartDateTime = $('<p>').attr('class', "start_date_time").text("Starts: " + obj.start_date_time.slice(11,16))
+    const $pEndDateTime = $('<p>').attr('class', "end_date_time").text("Ends: " + obj.end_date_time.slice(11,16))
     const $divEvent = $('<div>').attr('class', "event card-body")
     const $divEventCard = $('<div>').attr({
         class: 'event-card card shadow p-3 mb-3 bg-white rounded',
@@ -45,42 +45,46 @@ const getUserEvents = async() => {
 
 // Removes event from user list
 $('#removefromdb').on('click', async(event) => {
-
+    if ($('#name-input-field').val() !== "") {
     // get value from input box
-    const user = await $('#name-input-field').val()
+        const user = await $('#name-input-field').val()
 
-    // Send "user" to removeUser route
-    // const response = await fetch(`${URL}/users/removeUser/${user}`, {
-    //     method: "delete",
-    //     headers: {"Content-Type": "application/json"}
-    // });
-    console.log(user)
-
-    // After 'click' event detach event-card from the flex-container 
-    //$(`#${$targetEventId}`).detach()
-    $("#exampleModalCenter").modal('hide') 
+        // Send "user" to removeUser route
+        const response = await fetch(`${URL}/users/removeUser/${user}`, {
+            method: "delete",
+            headers: {"Content-Type": "application/json"}
+        });
+        // After 'click' event detach event-card from the flex-container 
+        //$(`#${$targetEventId}`).detach()
+        $("#removeUserModal").modal('hide')
+    } else {
+        $("#removeUserModal").modal('hide')
+        alert ("Name input field must not be blank")
+    } 
 });
 
 
 
 $('#queryuser').on('click', getUserEvents);
 
-const removeUser = async() => {
-    if ($('#name-input-field').val() !== ""){
+// const removeUser = async() => {
+//     if ($('#name-input-field').val() !== ""){
         
-        const $text = $('#name-input-field')
-        const user = $('#name-input-field').val()
+//         const $text = $('#name-input-field')
+//         const user = $('#name-input-field').val()
         
-        const response = await fetch(`${URL}/users/removeUser/${user}`, {
-        method: "delete",
-        headers: {"Content-Type": "application/json"}
-        });
-        $text.value = ''
-    } else {
-        alert ('not allowed!')
-    }
+//         const response = await fetch(`${URL}/users/removeUser/${user}`, {
+//         method: "delete",
+//         headers: {"Content-Type": "application/json"}
+//         });
+//         $text.value = ''
+//     } else {
+//         alert ('not allowed!')
+//     }
     
     
-};
+// };
 
-$('#removeuser').on('click', async() => { console.log('click')});
+// $('#removeuser').on('click', async () => {
+    // if ($('#name-input-field').val() !== "") {
+// })
