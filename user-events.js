@@ -37,11 +37,17 @@ function clearRewardsContainer() {
 const userExists = async(name) => {
     const response = await fetch(`${URL}/users/name/${name}`)
     const data = await response.json()
-    console.log(data)
+    
+    if (data) {
+        return false
+    } else {
+        return true
+    }
+
 };
 
 console.log('user exists', userExists("Jendri Morocho"))
-
+console.log('user exists', userExists("Willa Little"))
 const getUserEvents = async() => {
     const user = $('#name-input-field').val()
     const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
