@@ -23,10 +23,10 @@
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="user-events.html">User Favorites <span class="sr-only">(current)</span></a>
-            </li>
             <li class="nav-item">
+              <a class="nav-link" href="user-events.html">User Favorites</a>
+            </li>
+            <li class="nav-item active">
               <a class="nav-link" href="#">Register<span class="sr-only">(current)</span></a>
             </li>
           </ul>
@@ -34,15 +34,17 @@
       </nav>
 
     </header>
-    <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Full Name</label>
-          <input type="text" class="form-control" id="registerNameInput" aria-describedby="registerHelp">
-          <small id="registerlHelp" class="form-text text-muted">Your name will be made public. Proceed with caution</small>
-        </div>
+    <div id="landing">
+      <form>
+          <div class="form-group">
+            <h3>Full Name</h3>
+            <input type="text" class="form-control" id="registerNameInput" aria-describedby="registerHelp">
+            <small id="registerlHelp" class="form-text text-muted">Your name will be made public. Proceed with caution</small>
+          </div>
 
-        <button type="button" class="btn btn-primary" id="register-button">Register!</button>
+          <button type="button" class="btn btn-primary" id="register-button">Register!</button>
       </form>
+    </div>
     
 </body>
 </html>

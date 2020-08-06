@@ -1,32 +1,30 @@
-
 const deployedURL = null //"https://project2-backend-hosted.herokuapp.com"
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 const getAllEvents = async () => {
     const response = await fetch(`${URL}/events/getAll`)
     const d = await response.json()
-    
-    d.forEach( obj => createEventCard(obj))
-}
 
-getAllEvents()
+    d.forEach( obj => createEventCard(obj))
+};
+
+getAllEvents();
 
 // Callback function for "Add Event" button. Takes in the button id
 const addEventToUser = async (event) => {
     await $('.btn btn-primary save').on('click',console.log('hello'))
     
-}
+};
 
 
 const getUserEvents = async() => {
     const user = $('#name-input-field').val()
     const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
     const data = await response.json()
-    console.log(typeof data)
-}
 
-$('#queryuser').on('click', getUserEvents)
+};
 
+$('#queryuser').on('click', getUserEvents);
 
 // From an obj populate the event card
 const createEventCard = async(obj) => {
@@ -39,21 +37,20 @@ const createEventCard = async(obj) => {
     const $divEventCard = $('<div>').attr({
         class: 'event-card card shadow p-3 mb-3 bg-white rounded',
         id: obj._id        
-    })
+    });
     const $addEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Add Event')
     
     // Toggle "selected" class to Add Event button
     $addEventButton.on('click', async (event) => {
         let $elementId = await event.target.id
         await $(`#${$elementId}`).toggleClass('selected')
-    })
+    });
 
-    $divEvent.append([$h3EventName, $pEventBorough, 
-        $pEventLocation, $pStartDateTime, 
-        $pEndDateTime, $addEventButton])
+    $divEvent.append([$h3EventName, $pEventBorough, $pEventLocation, $pStartDateTime, $pEndDateTime, $addEventButton]);
+
     $divEventCard.append([$divEvent])
     $(`#flex-container`).append($divEventCard)
-}
+};
 
 const populateSelect = async (field, idAttribute) => {
     const data = await fetch(`${URL}/events/distinct/${field}`)
@@ -61,13 +58,12 @@ const populateSelect = async (field, idAttribute) => {
 
     response.forEach( e => {
         $(`#${idAttribute}`).append($(`<option>`).attr('value', e).text(e))
-    })
-}
+    });
+};
 
 
-
-populateSelect("event_borough", "locations")
-populateSelect("event_type", "eventTypes")
+populateSelect("event_borough", "locations");
+populateSelect("event_type", "eventTypes");
 
 const displayQueriedEvents = async() => {
     const $eventTypeSelect = $('#eventTypes').val()
@@ -83,12 +79,12 @@ const displayQueriedEvents = async() => {
     } else {
         $(`#flex-container`).empty()
     }
-}
+};
 
 const $findEventsButton = $('#find-events-button')
 $findEventsButton.on('click', displayQueriedEvents)
 
-$('#w').on('click', async(event) => {
+$('#addToList').on('click', async(event) => {
 
     // Ensure name field is not empty
     if ( $('#userNameField').val() !== "") {
@@ -101,16 +97,16 @@ $('#w').on('click', async(event) => {
         const data = await fetch(`${URL}/users/user/${name}/addEvent/${$targetEventId}`, {
             method: "put",
             headers: {"Content-Type": "application/json"}
-            })
+        });
 
         // After 'click' event detach event-card from the flex-container 
         $(`#${$targetEventId}`).toggleClass('selected')
         $(`#${$targetEventId}`).detach()
-        $("#exampleModalCenter").modal('hide') 
+        $("#removermodal").modal('hide') 
         
     } else {
         console.error('INVALID INPUT ERROR: Name field must not be blank')
-    }
+    };
     
-})
+});
 

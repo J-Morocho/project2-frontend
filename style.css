@@ -8,6 +8,10 @@ body {
 }
 */
 
+#event-query-form {
+    width: 60%;
+}
+
 #landing {
     background-color: #a1c181;
     display: flex;
