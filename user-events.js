@@ -40,8 +40,10 @@ const userExists = async(name) => {
     
     if (data) {
         return false
+        console.log('false')
     } else {
         return true
+        console.log('true')
     }
 
 };
