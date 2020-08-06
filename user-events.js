@@ -33,31 +33,37 @@ function clearRewardsContainer() {
     $('#flex-container').html("");
 };
 
-// Check wether there is a user 
-const userExists = async(name) => {
-    const response = await fetch(`${URL}/users/name/${name}`)
-    const data = await response.json()
+// POST MVP STUFF
+// // Check whether there is a user 
+// const userExists = async(name) => {
+//     const response = await fetch(`${URL}/users/name/${name}`)
+//     const data = await response.json()
     
-    if (data) {
-        return false
-        console.log('false')
-    } else {
-        return true
-        console.log('true')
-    }
+//     if (data) {
+//         return false
+//         console.log('false')
+//     } else {
+//         return true
+//         console.log('true')
+//     }
 
-};
+// };
 
-console.log('user exists',  userExists("Jendri Morocho"))
-console.log('user exists Willa', userExists("Willa Little"))
+// console.log('user exists',  userExists("Jendri Morocho"))
+// console.log('user exists Willa', userExists("Willa Little"))
+
 const getUserEvents = async() => {
-    const user = $('#name-input-field').val()
-    const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
-    const data = await response.json()
-    
-    clearRewardsContainer()
+    if ( $('#name-input-field').val() !== "") {
+        const user = $('#name-input-field').val()
+        const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
+        const data = await response.json()
+        
+        clearRewardsContainer()
 
-    data.eventsAttending.forEach( (obj) => createEventCard(obj))
+        data.eventsAttending.forEach( (obj) => createEventCard(obj))
+    } else {
+        alert ("Name input field must not be blank")
+    }
     
 };
 
