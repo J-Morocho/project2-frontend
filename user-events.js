@@ -48,8 +48,8 @@ const userExists = async(name) => {
 
 };
 
-console.log('user exists', userExists("Jendri Morocho"))
-console.log('user exists', userExists("Willa Little"))
+console.log('user exists',  userExists("Jendri Morocho"))
+console.log('user exists Willa', userExists("Willa Little"))
 const getUserEvents = async() => {
     const user = $('#name-input-field').val()
     const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
