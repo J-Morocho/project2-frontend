@@ -3,6 +3,7 @@ const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 // From an obj populate the event card
 const createEventCard = async(obj) => {
+    // Create card elements
     const $h3EventName = $('<h3>').attr('class', "event_name card-title").text(obj.event_name)
     const $pEventBorough = $('<p>').attr('class', "event_borough").text(obj.event_borough)
     const $pEventLocation = $('<p>').attr('class', "event_location").text(obj.event_location)
@@ -13,6 +14,7 @@ const createEventCard = async(obj) => {
         class: 'event-card card shadow p-3 mb-3 bg-white rounded',
         id: obj._id        
     })
+    // Add event id to remove event button
     const $removeEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Remove Event')
     // Toggle "selected" class to Add Event button
     $removeEventButton.on('click', async (event) => {
@@ -29,8 +31,14 @@ const createEventCard = async(obj) => {
 
 function clearRewardsContainer() {
     $('#flex-container').html("");
-  }
+};
 
+// Check wether there is a user 
+const userExists = async(name) => {
+    console.log( await fetch(`${URL}/users/name/${name}`))
+};
+
+console.log('user exists', userExists("Jendri Morocho"))
 
 const getUserEvents = async() => {
     const user = $('#name-input-field').val()
@@ -64,27 +72,4 @@ $('#removefromdb').on('click', async(event) => {
 });
 
 
-
 $('#queryuser').on('click', getUserEvents);
-
-// const removeUser = async() => {
-//     if ($('#name-input-field').val() !== ""){
-        
-//         const $text = $('#name-input-field')
-//         const user = $('#name-input-field').val()
-        
-//         const response = await fetch(`${URL}/users/removeUser/${user}`, {
-//         method: "delete",
-//         headers: {"Content-Type": "application/json"}
-//         });
-//         $text.value = ''
-//     } else {
-//         alert ('not allowed!')
-//     }
-    
-    
-// };
-
-// $('#removeuser').on('click', async () => {
-    // if ($('#name-input-field').val() !== "") {
-// })

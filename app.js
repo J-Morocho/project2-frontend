@@ -102,7 +102,7 @@ $('#addToList').on('click', async(event) => {
         // After 'click' event detach event-card from the flex-container 
         $(`#${$targetEventId}`).toggleClass('selected')
         $(`#${$targetEventId}`).detach()
-        $("#removermodal").modal('hide') 
+        $("#exampleModalCenter").modal('hide') 
         
     } else {
         console.error('INVALID INPUT ERROR: Name field must not be blank')
