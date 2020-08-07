@@ -64,6 +64,7 @@ $('#removefromdb').on('click', async(event) => {
             headers: {"Content-Type": "application/json"}
         });
 
+        $('#name-input-field').val("")
         $("#removeUserModal").modal('hide')
     } else {
         $("#removeUserModal").modal('hide')

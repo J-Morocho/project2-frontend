@@ -1,10 +1,12 @@
 # Project Overview
 ## Placeholder: The non aptly named event finding API
 
-Display events going on around your area!
+**Display events going on around your area!**  
+
 ![Home Page](https://res.cloudinary.com/jcloud3zf/image/upload/v1596744866/project2-api/p2-api-homepage_ltthgk.png)
 
-Track events that people in your area are attending!
+**Track events that people in your area are attending!**  
+
 ![Track Users](https://res.cloudinary.com/jcloud3zf/image/upload/v1596744874/project2-api/p2-api-userfavorites_fj53ud.png)
 
 ### Backend Code
@@ -19,7 +21,7 @@ Does the frontend strain your eyes? Take a look at some backend code!
 |Day 1| Wireframes / Priority Matrix / Timeline `backend` and `frontend`| Complete
 |Day 2| Working RestAPI | Complete
 |Day 3| Core Application Structure (HTML, CSS, etc.) | Complete
-|Day 4| MVP & Bug Fixes | Incomplete
+|Day 4| MVP & Bug Fixes | Complete
 |Day 5| Final Touches and Present | Incomplete
 
 ## Project Description
