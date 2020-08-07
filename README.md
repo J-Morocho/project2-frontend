@@ -22,7 +22,7 @@ Does the frontend strain your eyes? Take a look at some backend code!
 |Day 2| Working RestAPI | Complete
 |Day 3| Core Application Structure (HTML, CSS, etc.) | Complete
 |Day 4| MVP & Bug Fixes | Complete
-|Day 5| Final Touches and Present | Incomplete
+|Day 5| Final Touches and Present | Complete
 
 ## Project Description
 
