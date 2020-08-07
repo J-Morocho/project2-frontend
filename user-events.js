@@ -89,6 +89,14 @@ $('#removeFromList').on('click', async(event) => {
         headers: {"Content-Type": "application/json"}
     });
 
+    $(`#${$targetEventId}`).toggleClass('selected')
+    $(`#${$targetEventId}`).detach()
     $("#exampleModalCenter").modal('hide')
 
 })
+
+// toggle selected class when clicking no
+$("#denyremove").on('click', async()=> {
+    let $targetEventId = $('.selected').attr('id')
+    $(`#${$targetEventId}`).toggleClass('selected')
+});
