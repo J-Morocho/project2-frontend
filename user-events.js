@@ -2,7 +2,7 @@ const deployedURL = "https://project2-backend-hosted.herokuapp.com"
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 // From an obj populate the event card
-const createEventCard = async(obj) => {
+const createEventCard = async(obj, user) => {
     // Create card elements
     const $h3EventName = $('<h3>').attr('class', "event_name card-title").text(obj.event_name)
     const $pEventBorough = $('<p>').attr('class', "event_borough").text(obj.event_borough)
@@ -12,7 +12,8 @@ const createEventCard = async(obj) => {
     const $divEvent = $('<div>').attr('class', "event card-body")
     const $divEventCard = $('<div>').attr({
         class: 'event-card card shadow p-3 mb-3 bg-white rounded',
-        id: obj._id        
+        id: obj._id,
+        value: user        
     })
     // Add event id to remove event button
     const $removeEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Remove Event')
@@ -40,10 +41,10 @@ const getUserEvents = async() => {
         const user = $('#name-input-field').val()
         const response = await fetch(`${URL}/users/user/${user}/eventsAttending`)
         const data = await response.json()
-        
+
         clearRewardsContainer()
 
-        data.eventsAttending.forEach( (obj) => createEventCard(obj))
+        data.eventsAttending.forEach( (obj) => createEventCard(obj, user))
 
         $('#name-input-field').val("")
     } else {
@@ -57,12 +58,14 @@ $('#removefromdb').on('click', async(event) => {
     if ($('#name-input-field').val() !== "") {
     // get value from input box
         const user = await $('#name-input-field').val()
-
-        // Send "user" to removeUser route
+        
+        
+        //Send "user" to removeUser route
         const response = await fetch(`${URL}/users/removeUser/${user}`, {
             method: "delete",
             headers: {"Content-Type": "application/json"}
         });
+        
 
         $('#name-input-field').val("")
         $("#removeUserModal").modal('hide')
