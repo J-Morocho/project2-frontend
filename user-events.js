@@ -2,7 +2,7 @@ const deployedURL = "https://project2-backend-hosted.herokuapp.com"
 const URL = deployedURL ? deployedURL : "http://localhost:3000"
 
 // From an obj populate the event card
-const createEventCard = async(obj, user) => {
+const createEventCard = async(obj,user) => {
     // Create card elements
     const $h3EventName = $('<h3>').attr('class', "event_name card-title").text(obj.event_name)
     const $pEventBorough = $('<p>').attr('class', "event_borough").text(obj.event_borough)
@@ -13,11 +13,11 @@ const createEventCard = async(obj, user) => {
     const $divEventCard = $('<div>').attr({
         class: 'event-card card shadow p-3 mb-3 bg-white rounded',
         id: obj._id,
-        value: user        
+        value: user
     })
     // Add event id to remove event button
-    const $removeEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Remove Event')
-    // Toggle "selected" class to Add Event button
+    const $removeEventButton = $('<button type="button" class="btn btn-primary remove" data-toggle="modal" data-target="#exampleModalCenter">').attr("id", obj._id ).text('Remove Event')
+    // Toggle "selected" class to remove Event button
     $removeEventButton.on('click', async (event) => {
         let $elementId = await event.target.id
         await $(`#${$elementId}`).toggleClass('selected')
@@ -59,7 +59,7 @@ $('#removefromdb').on('click', async(event) => {
     // get value from input box
         const user = await $('#name-input-field').val()
         
-        
+
         //Send "user" to removeUser route
         const response = await fetch(`${URL}/users/removeUser/${user}`, {
             method: "delete",
@@ -77,3 +77,11 @@ $('#removefromdb').on('click', async(event) => {
 
 
 $('#queryuser').on('click', getUserEvents);
+
+$('#removeFromList').on('click', async(event) => {
+    // Find the "selected" event and the user's name
+    let $targetEventId = await $('.selected').attr('id')
+    const name = await $('.selected').attr('value')
+    console.log($targetEventId)
+    console.log('name', name)
+})
