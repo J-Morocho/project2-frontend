@@ -37,6 +37,7 @@ const createEventCard = async(obj) => {
         class: 'event-card card shadow p-3 mb-3 bg-white rounded',
         id: obj._id        
     });
+
     const $addEventButton = $('<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">').attr('id', obj._id).text('Add Event')
     
     // Toggle "selected" class to Add Event button
@@ -77,7 +78,8 @@ const displayQueriedEvents = async() => {
         response.forEach( (obj) => {createEventCard(obj)})
     } else {
         $(`#flex-container`).empty()
-    }
+    };
+
 };
 
 const $findEventsButton = $('#find-events-button')
