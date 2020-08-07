@@ -82,6 +82,13 @@ $('#removeFromList').on('click', async(event) => {
     // Find the "selected" event and the user's name
     let $targetEventId = await $('.selected').attr('id')
     const name = await $('.selected').attr('value')
-    console.log($targetEventId)
-    console.log('name', name)
+    
+    // send data to event remove router
+    const response = await fetch(`${URL}/users/user/${name}/removeEvent/${$targetEventId}`, {
+        method: "delete",
+        headers: {"Content-Type": "application/json"}
+    });
+
+    $("#exampleModalCenter").modal('hide')
+
 })
